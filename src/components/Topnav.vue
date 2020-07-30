@@ -1,12 +1,14 @@
 <template>
      <div class="topnav">
-        <div class="logo" @click="toggleMenu">logo</div>
+        <div class="logo">logo</div>
         <div class="menu">
             <ul>
                 <li>菜单1</li>
                 <li>菜单2</li>
             </ul>
         </div>
+
+        <div class="toggleAside"  @click="toggleMenu"></div>
     </div>
 </template>
 <script type='ts'>
@@ -16,9 +18,7 @@ export default {
         const menuVisible = inject('showMenu')
         const toggleMenu=()=>{
             menuVisible.value = !menuVisible.value
-            console.log(menuVisible.value)
         }
-        console.log(menuVisible)
         return {toggleMenu}
     }
 }
@@ -35,6 +35,27 @@ export default {
         flex-wrap: nowrap;
         > li {
             margin:0 1em;
+        }
+    }
+    .toggleAside{
+        display: none;
+        position: absolute;
+        left: 10px;
+        top: 10px;
+        width: 40px;
+        height: 40px;
+        border-radius: 10px;
+        background-color:#f2f2f2;
+    }
+    @media (max-width: 500px) {
+        >.menu{
+            display: none;
+        }
+        >.logo{
+            margin: 0 auto;
+        }
+        >.toggleAside{
+            display: block;
         }
     }
 }

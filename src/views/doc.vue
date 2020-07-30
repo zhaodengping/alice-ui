@@ -18,7 +18,6 @@ import { inject } from 'vue'
 export default {
     setup(){
         const menuVisible = inject('showMenu')
-        console.log(menuVisible)
         return {menuVisible}
     },
     components:{Topnav}
