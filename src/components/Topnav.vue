@@ -25,10 +25,13 @@ export default {
 </script>
 <style lang="scss" scoped>
 .topnav {
+    position: fixed;
     background: pink;
     display: flex;
     justify-content: space-between;
     padding: 16px;
+    z-index: 999;
+    width: 100%;
     .menu ul{
         display: flex;
         white-space: nowrap;

@@ -1,5 +1,42 @@
 <template>
     <div>
-        switch组件
+        <div>switch组件</div>
+        <div>switch组件</div>
+        <div>switch组件</div>
+        <div>switch组件</div>
+        <div>switch组件</div>
+        <div>switch组件</div>
+        <div>switch组件</div>
+        <div>switch组件</div>
+        <div>switch组件</div>
+        <div>switch组件</div>
+        <div>switch组件</div>
+        <div>switch组件</div>
+        <div>switch组件</div>
+        <div>switch组件</div>
+        <div>switch组件</div>
+        <div>switch组件</div>
+        <div>switch组件</div>
+        <div>switch组件</div>
+        <div>switch组件</div>
+        <div>switch组件</div>
+        <div>switch组件</div>
+        <div>switch组件</div>
+        <div>switch组件</div>
+        <div>switch组件</div>
+        <div>switch组件</div>
+        <div>switch组件</div>
+        <div>switch组件</div>
+        <div>switch组件</div>
+        <div>switch组件</div>
+        <div>switch组件</div>
+        <div>switch组件</div>
+        <div>switch组件</div>
+        <div>switch组件</div>
+        <div>switch组件</div>
+        <div>switch组件</div>
+        <div>switch组件</div>
+        <div>switch组件</div>
+        <div>switch组件</div>
     </div>
 </template>

@@ -1,5 +1,5 @@
 <template>
-    <div>
+    <div class="layout">
         <Topnav/>
         <div class="content">
             <aside v-if='menuVisible'>
@@ -28,8 +28,35 @@ export default {
 }
 </script>
 <style lang="scss" scoped>
-aside {
-  background: lightblue;
-  width: 200px;
-}
+.layout{
+    height: 100vh;
+    .content{
+        display: flex;
+        aside {
+            padding: 70px 16px 0 16px;
+            position: fixed;
+            left: 0;
+            top: 0;
+            background: lightblue;
+            width: 200px;
+            height: 100%;
+            z-index: 88;
+        }
+        main{
+            position: fixed;
+            left: 0;
+            top: 0;
+            padding: 70px 0 0 220px;
+            background-color: #f2f2f2;
+            width: 100%;
+            height: 100vh;
+            overflow: auto;
+        }
+        @media (max-width: 500px) {
+            main{
+                padding-left: 20px;
+            }
+        }
+    }
+}   
 </style>
