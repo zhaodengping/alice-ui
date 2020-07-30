@@ -5,10 +5,14 @@
             <aside v-if='menuVisible'>
                 <h2>组件列表</h2>
                 <ol>
-                    <li>switch组件</li>
+                    <li>
+                        <router-link to='/doc/switch'>switch组件</router-link>
+                    </li>
                 </ol>
             </aside>
-            <main></main>
+            <main>
+                <router-view/>
+            </main>
         </div>
     </div>
 </template>
