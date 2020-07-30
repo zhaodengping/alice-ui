@@ -1,12 +1,12 @@
 <template>
-    <div>
+    <div class="home">
         <Topnav/>
         <div class="banner">
             <h1>Alice UI</h1>
             <h2>这是一个简单的轮子UI</h2>
             <p class="actions">
-                <a href="#">github</a>
-                <a href="#">开始</a>
+                <router-link to='/doc'>查看文档</router-link>
+                <a href="https://github.com/zhaodengping/alice-ui">github</a>
             </p>
         </div>
     </div>
