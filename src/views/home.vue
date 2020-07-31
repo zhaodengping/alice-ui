@@ -17,3 +17,17 @@ export default {
     components:{Topnav}
 }
 </script>
+<style lang="scss" scoped>
+    .banner{
+        margin-top: 100px;
+        text-align: center;
+        a{
+            margin: 0 10px;
+            text-decoration: none;
+            color: lightseagreen;
+            &:hover{
+                color: lightcoral;
+            }
+        }
+    }
+</style>

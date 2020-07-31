@@ -26,6 +26,7 @@ export default {
 <style lang="scss" scoped>
 .topnav {
     position: fixed;
+    top:0;
     background: pink;
     display: flex;
     justify-content: space-between;

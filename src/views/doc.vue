@@ -8,6 +8,12 @@
                     <li>
                         <router-link to='/doc/switch'>switch组件</router-link>
                     </li>
+                    <li>
+                        <router-link to='/doc/button'>button组件</router-link>
+                    </li>
+                    <li>
+                        <router-link to='/doc/tabs'>tabs组件</router-link>
+                    </li>
                 </ol>
             </aside>
             <main>
@@ -41,6 +47,13 @@ export default {
             width: 200px;
             height: 100%;
             z-index: 88;
+            a{
+                text-decoration: none;
+                color: #000;
+                &:hover,&:active{
+                    color: lightcoral;
+                }
+            }
         }
         main{
             position: fixed;
