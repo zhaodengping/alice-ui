@@ -29,6 +29,10 @@ npm i -g create-vite-app@1.18.0
 }
 ```
 
+- v-model的变化
+
+    
+
 
 完成进度如下：
 
