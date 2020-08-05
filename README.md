@@ -2,7 +2,6 @@
 
 用我的名字造轮子，纪念一下啦～～
 
-### day1
 
 - 安装
 
@@ -18,8 +17,6 @@ npm i -g create-vite-app@1.18.0
     - 使用
 - typescript
 
-### day2
-
 - 安装`sass`和使用`typescript`
 
 - 完成大致的页面布局，包括topnav,aside
@@ -32,6 +29,8 @@ npm i -g create-vite-app@1.18.0
 }
 ```
 
-- 根据按钮点击操控菜单的展示/隐藏
 
-使用到`reject`和`provide`
+完成进度如下：
+
+- switch组件
+
