@@ -31,7 +31,18 @@ npm i -g create-vite-app@1.18.0
 
 - v-model的变化
 
-    
+- 知识点
+
+    - 默认所有属性都是绑定在根元素上
+
+    - 使用inheritAttrs:false取消默认绑定的属性
+
+    - 使用$attrs或者context.attrs获取所有属性
+
+    - props和context的区别
+
+        1. props需要先声明，context.attrs不需要声明
+        2. props不包含事件
 
 
 完成进度如下：
