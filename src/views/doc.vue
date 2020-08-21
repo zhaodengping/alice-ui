@@ -1,9 +1,8 @@
 <template>
     <div class="layout">
-        <Topnav/>
+       <Topnav/>
         <div class="content">
             <aside v-if='menuVisible'>
-                <h2>组件列表</h2>
                 <ol>
                     <li>
                         <router-link to='/doc/switch'>switch组件</router-link>
@@ -36,22 +35,26 @@ export default {
 <style lang="scss" scoped>
 .layout{
     height: 100vh;
+    background-color: #fff;
     .content{
         display: flex;
         aside {
-            padding: 70px 16px 0 16px;
+            padding: 100px 16px 0 16px;
             position: fixed;
             left: 0;
             top: 0;
-            background: lightblue;
             width: 200px;
             height: 100%;
             z-index: 88;
+            border-right: 1px solid #f2f2f2;
+            li{
+                line-height: 50px;
+            }
             a{
                 text-decoration: none;
                 color: #000;
-                &:hover,&:active{
-                    color: lightcoral;
+                &:hover,&:focus,&:active{
+                    color: #409eff;
                 }
             }
         }
@@ -59,8 +62,8 @@ export default {
             position: fixed;
             left: 0;
             top: 0;
-            padding: 70px 0 0 220px;
-            background-color: #f2f2f2;
+            padding: 100px 0 0 220px;
+            background-color: #fff;
             width: 100%;
             height: 100vh;
             overflow: auto;

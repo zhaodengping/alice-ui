@@ -1,6 +1,5 @@
 <template>
     <div class="home">
-        <Topnav/>
         <div class="banner">
             <h1>Alice UI</h1>
             <h2>这是一个简单的轮子UI</h2>
@@ -19,7 +18,7 @@ export default {
 </script>
 <style lang="scss" scoped>
     .banner{
-        margin-top: 100px;
+        margin-top: 150px;
         text-align: center;
         a{
             margin: 0 10px;
