@@ -62,6 +62,7 @@ export default {
       &.A-theme-button{
         &[disabled]{
           cursor: not-allowed;
+          background-color: lighten($theme-color, 10%);
         }
         
         background-color: $theme-color;
@@ -98,11 +99,13 @@ export default {
           }
           &[disabled]{
             cursor: not-allowed;
+            background-color: lighten($warning, 10%);
           }
         }
         &.A-level-danger{
           &[disabled]{
             cursor: not-allowed;
+            background-color: lighten($danger, 10%);
           }
           background-color: $danger;
           color: $white;
