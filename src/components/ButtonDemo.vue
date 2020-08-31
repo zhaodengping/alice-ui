@@ -5,7 +5,10 @@
         <div class="basic-button">
             <ul>
                 <li>
-                    <Button>我是按钮</Button>
+                    <Button @click="onClick">我是按钮</Button>
+                </li>
+                <li>
+                    <Button theme='primary'>我是按钮</Button>
                 </li>
                 <li>
                     <Button theme='link'>我是按钮</Button>
@@ -75,7 +78,7 @@
 <script lang='ts'>
 import Button from '../lib/Button.vue'
 export default {
-    components:{Button:Button},
+    components:{Button},
     setup(){
         const onClick=()=>{
             console.log('点击')

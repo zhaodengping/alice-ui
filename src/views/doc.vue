@@ -1,43 +1,56 @@
 <template>
-    <div class="layout">
-       <Topnav/>
-        <div class="content">
-            <aside v-if='menuVisible'>
-                <ol>
-                    <li>
-                        <router-link to='/doc/switch'>switch组件</router-link>
-                    </li>
-                    <li>
-                        <router-link to='/doc/button'>button组件</router-link>
-                    </li>
-                    <li>
-                        <router-link to='/doc/tabs'>tabs组件</router-link>
-                    </li>
-                </ol>
-            </aside>
-            <main>
-                <router-view/>
-            </main>
-        </div>
+<div class="layout">
+    <Topnav />
+    <div class="content">
+        <aside v-if='menuVisible'>
+            <ol>
+                <li>
+                    <router-link to='/doc/switch'>switch组件</router-link>
+                </li>
+                <li>
+                    <router-link to='/doc/button'>button组件</router-link>
+                </li>
+                <li>
+                    <router-link to='/doc/tabs'>tabs组件</router-link>
+                </li>
+                <li>
+                    <router-link to='/doc/dialog'>dialog组件</router-link>
+                </li>
+            </ol>
+        </aside>
+        <main>
+            <router-view />
+        </main>
     </div>
+</div>
 </template>
-<script lang='ts'>
+
+<script lang="ts">
 import Topnav from '../components/Topnav.vue'
-import { inject } from 'vue'
+import {
+    inject
+} from 'vue'
 export default {
-    setup(){
+    setup() {
         const menuVisible = inject('showMenu')
-        return {menuVisible}
+        return {
+            menuVisible
+        }
     },
-    components:{Topnav}
+    components: {
+        Topnav
+    }
 }
 </script>
+
 <style lang="scss" scoped>
-.layout{
+.layout {
     height: 100vh;
     background-color: #fff;
-    .content{
+
+    .content {
         display: flex;
+
         aside {
             padding: 100px 16px 0 16px;
             position: fixed;
@@ -45,34 +58,37 @@ export default {
             top: 0;
             width: 200px;
             height: 100%;
-            z-index: 88;
+            z-index: 20;
             border-right: 1px solid #f2f2f2;
-            li{
+            li {
                 line-height: 50px;
             }
-            a{
+
+            a {
                 text-decoration: none;
                 color: #000;
-                &:hover,&:focus,&:active{
+
+                &:hover,
+                &:focus,
+                &:active {
                     color: #409eff;
                 }
             }
         }
-        main{
-            position: fixed;
-            left: 0;
-            top: 0;
+
+        main {
             padding: 100px 0 0 220px;
             background-color: #fff;
             width: 100%;
             height: 100vh;
             overflow: auto;
         }
+
         @media (max-width: 500px) {
-            main{
+            main {
                 padding-left: 20px;
             }
         }
     }
-}   
+}
 </style>

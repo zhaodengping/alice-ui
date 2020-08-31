@@ -33,7 +33,7 @@ export default {
     justify-content: space-between;
     justify-items: center;
     padding: 16px;
-    z-index: 999;
+    z-index: 10;
     width: 100%;
     border-bottom: 1px solid #f2f2f2;
     .logo{

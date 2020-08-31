@@ -1,0 +1,106 @@
+<template>
+<div>
+111
+</div>
+<div class="A-dialog" v-if="visial">
+    <div class="A-dialog-wrapper">
+        <header>
+            <slot name='title'/>
+            <span class="A-dialog-close" @click="closeDialog"></span>
+        </header>
+        <main>
+            <slot name='content'/>
+        </main>
+        <footer>
+            <Button theme='primary' @click="closeDialog">取消</Button>
+            <Button>确定</Button>
+        </footer>
+    </div>
+</div>
+</template>
+
+<script lang="ts">
+import Button from '../lib/Button.vue'
+import { ref } from 'vue'
+export default {
+    components: {
+        Button
+    },
+    props:{
+        visial:{
+            type:Boolean,
+            default:false
+        }
+    },
+    setup(props,context){
+        const closeDialog=()=>{
+            context.emit('update:visial',false)
+        }
+        return{
+            closeDialog
+        }
+    }
+}
+</script>
+
+<style lang="scss">
+.A-dialog {
+    position: fixed;
+    background-color: fade_out(black, 0.5);
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100vh;
+    z-index: 60;
+    box-shadow: 0,0,3px fade_out(black, 0.5);
+    &-wrapper {
+        position: fixed;
+        left: 50%;
+        top: 50%;
+        transform: translate(-50%,-50%);
+        padding: 20px;
+        background-color: #fff;
+        width: 70%;
+        height: 200px;
+        border-radius: 4px;
+        >header{
+            display: flex;
+            justify-content: space-between;
+            font-size: 20px;
+            cursor: pointer;
+        }
+        >main{
+            margin: 20px;
+        }
+        >footer{
+            position: absolute;
+            bottom: 20px;
+            right: 20px;
+            >button{
+                margin-right: 20px;
+            }
+        }
+    }
+    &-close{
+        position: relative;
+        display: inline-block;
+        width: 16px;
+        height: 16px;
+        &::before,&::after{
+            content: "";
+            position: absolute;
+            left: 50%;
+            top: 50%;
+            height: 1px;
+            width: 100%;
+            background: #000;
+        }
+        &::before{
+            transform: translate(-50%,-50%) rotate(-45deg);
+        }
+        &::after{
+            transform: translate(-50%,-50%) rotate(45deg);
+        }
+    }
+}
+</style>

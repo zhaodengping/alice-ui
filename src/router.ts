@@ -4,6 +4,7 @@ import Doc from "./views/doc.vue";
 import Switch from './components/SwitchDemo.vue'
 import Button from './components/ButtonDemo.vue'
 import Tabs from './components/Tabs.vue'
+import Dialog from './components/DialogDemo.vue'
 
 import {createWebHashHistory,createRouter} from 'vue-router'
 
@@ -25,6 +26,8 @@ export const router=createRouter({
             path:'button',component:Button
         },{
             path:'tabs',component:Tabs
+        },{
+            path:'Dialog',component:Dialog
         }]
     }]
 })

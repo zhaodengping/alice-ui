@@ -7,7 +7,6 @@
 <script lang='ts'>
 import { computed } from 'vue'
 export default {
-    inheritAttrs:false,
     props:{
         theme:{
           type:String,
@@ -50,29 +49,10 @@ export default {
     $radius:4px;
     $warning:#e6a23c;
     $danger:#f56c6c;
-    .A-button{
-      padding:0 10px;
-      height: $h;
-      border:0px solid transparent;
-      border-radius: $radius;
-      cursor: pointer;
-      &:focus{
-        outline: none;
-      }
-      &.A-theme-button{
-        &[disabled]{
-          cursor: not-allowed;
-          background-color: lighten($theme-color, 10%);
-        }
-        
-        background-color: $theme-color;
-        color: $white;
-        &:hover,
-        &:focus{
-          background-color: lighten($theme-color,10%);
-          color: lighten($white, 10%);
-        }
-        // 尺寸
+    $primary-color:#9d9d9d;
+
+    @mixin common{
+      // 尺寸
         &.A-size-normal{
           padding: 0 20px;
           height: 40px;
@@ -114,6 +94,32 @@ export default {
             background-color: lighten($danger, 10%);
           }
         }
+    }
+    .A-button{
+      padding:0 10px;
+      height: $h;
+      border:0px solid transparent;
+      border-radius: $radius;
+      cursor: pointer;
+      &:focus{
+        outline: none;
+      }
+      &.A-theme-button{
+        &[disabled]{
+          cursor: not-allowed;
+          background-color: lighten($theme-color, 10%);
+        }
+        
+        background-color: $theme-color;
+        color: $white;
+        &:hover,
+        &:focus{
+          background-color: lighten($theme-color,10%);
+          color: lighten($white, 10%);
+        }
+
+        @include common;
+        
         > .A-loadingIndicator{
           display: inline-block;
           margin-right: 5px;
@@ -133,8 +139,20 @@ export default {
               transform: rotate(360deg);
             }
         }
+       
       }
-
+      &.A-theme-primary{
+        border: 1px solid $primary-color;
+        background-color:$white; 
+        border-radius: $radius;
+        color: $primary-color;
+        &:hover,&:active,&:focus{
+          background-color: lighten($theme-color, 30%);
+          border-color: lighten($theme-color, 10%);
+          color: $theme-color;
+        }
+        @include common;
+      }
       &.A-theme-link{
         background-color: transparent;
         color: $theme-color;
