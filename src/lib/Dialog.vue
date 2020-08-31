@@ -109,7 +109,7 @@ export default {
             cursor: pointer;
         }
         >main{
-            margin: 20px;
+            margin: 20px 0;
         }
         >footer{
             position: absolute;
