@@ -1,23 +1,24 @@
 <template> 
-    <teleport to='body'>
-        <div class="A-dialog" v-if="visial">
-            <div class="A-dialog-overlay" @click="clickOverlay"></div>
-            <div class="A-dialog-wrapper">
-                <header>
-                    {{title}}
-                    <span class="A-dialog-close" @click="closeDialog"></span>
-                </header>
-                <main>
-                    <slot/>
-                </main>
-                <footer>
-                    <Button theme='primary' @click="cancelDialog">取消</Button>
-                    <Button @click="sureDialog">确定</Button>
-                </footer>
+    <template v-if="visial">
+        <Teleport to='body'>
+            <div class="A-dialog">
+                <div class="A-dialog-overlay" @click="clickOverlay"></div>
+                <div class="A-dialog-wrapper">
+                    <header>
+                        {{title}}
+                        <span class="A-dialog-close" @click="closeDialog"></span>
+                    </header>
+                    <main>
+                        <slot name='content'/>
+                    </main>
+                    <footer>
+                        <Button theme='primary' @click="cancel">取消</Button>
+                        <Button @click="sureDialog">确定</Button>
+                    </footer>
+                </div>
             </div>
-        </div>
-    </teleport>
-    
+        </Teleport>
+    </template>
 </template>
 
 <script lang="ts">
@@ -43,7 +44,7 @@ export default {
         ok:{
             type:Function
         },
-        cancel:{
+        close:{
             type:Function
         }
     },
@@ -55,20 +56,24 @@ export default {
             if(props.canClickOverlay){
                 closeDialog()
             }
-        }
+        } 
         const sureDialog=()=>{
-            if(props.ok?.()!==false){
-                close()
+            if(props.ok?.()===true){
+                console.log('确定')
+                closeDialog()
             }
         }
-        const cancelDialog=()=>{
-            if(props.cancel?.()==false){
-                close()
+        const cancel=()=>{
+            if(props.close?.()===false){
+                console.log('关闭');
+                closeDialog()
             }
         }
         return{
             closeDialog,
-            clickOverlay
+            clickOverlay,
+            sureDialog,
+            cancel
         }
     }
 }

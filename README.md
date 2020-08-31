@@ -66,3 +66,4 @@ npm i -g create-vite-app@1.18.0
 
 - button组件
 
+- Dialog组件
