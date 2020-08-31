@@ -1,20 +1,23 @@
 <template> 
-    <div class="A-dialog" v-if="visial">
-        <div class="A-dialog-overlay" @click="clickOverlay"></div>
-        <div class="A-dialog-wrapper">
-            <header>
-                <slot name='title'/>
-                <span class="A-dialog-close" @click="closeDialog"></span>
-            </header>
-            <main>
-                <slot name='content'/>
-            </main>
-            <footer>
-                <Button theme='primary' @click="cancelDialog">取消</Button>
-                <Button @click="sureDialog">确定</Button>
-            </footer>
+    <teleport to='body'>
+        <div class="A-dialog" v-if="visial">
+            <div class="A-dialog-overlay" @click="clickOverlay"></div>
+            <div class="A-dialog-wrapper">
+                <header>
+                    {{title}}
+                    <span class="A-dialog-close" @click="closeDialog"></span>
+                </header>
+                <main>
+                    <slot/>
+                </main>
+                <footer>
+                    <Button theme='primary' @click="cancelDialog">取消</Button>
+                    <Button @click="sureDialog">确定</Button>
+                </footer>
+            </div>
         </div>
-    </div>
+    </teleport>
+    
 </template>
 
 <script lang="ts">
@@ -25,6 +28,10 @@ export default {
         Button
     },
     props:{
+        title:{
+            type:String,
+            default:"标题"
+        },
         visial:{
             type:Boolean,
             default:false
@@ -55,7 +62,9 @@ export default {
             }
         }
         const cancelDialog=()=>{
-            
+            if(props.cancel?.()==false){
+                close()
+            }
         }
         return{
             closeDialog,

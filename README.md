@@ -44,6 +44,21 @@ npm i -g create-vite-app@1.18.0
         1. props需要先声明，context.attrs不需要声明
         2. props不包含事件
 
+    - slot插槽
+
+        具名插槽
+
+        ```
+        v-slot:slotName
+
+
+        <slot name="slotName"/>
+        ```
+    - teleport将代码放到指定的节点下
+
+         ```
+         <teleport to='body'></teleport>
+         ```
 
 完成进度如下：
 
