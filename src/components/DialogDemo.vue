@@ -1,6 +1,6 @@
 <template>
     <Button @click="open">打开dialog</Button>
-    <Dialog v-model:visial="isVisial">
+    <Dialog v-model:visial="isVisial" :canClickOverlay="false" :ok='f1' :cancel="f2">
         <template v-slot:title>标题</template>
         <template v-slot:content>这是一段文字</template>
     </Dialog>
@@ -20,6 +20,12 @@ export default {
         let isVisial=ref(false)
         const open=()=>{
             isVisial.value=true
+        }
+        const f1=()=>{
+            return true
+        }
+        const f2=()=>{
+            return false
         }
         return{
             isVisial,

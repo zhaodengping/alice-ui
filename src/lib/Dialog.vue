@@ -1,22 +1,20 @@
-<template>
-<div>
-111
-</div>
-<div class="A-dialog" v-if="visial">
-    <div class="A-dialog-wrapper">
-        <header>
-            <slot name='title'/>
-            <span class="A-dialog-close" @click="closeDialog"></span>
-        </header>
-        <main>
-            <slot name='content'/>
-        </main>
-        <footer>
-            <Button theme='primary' @click="closeDialog">取消</Button>
-            <Button>确定</Button>
-        </footer>
+<template> 
+    <div class="A-dialog" v-if="visial">
+        <div class="A-dialog-overlay" @click="clickOverlay"></div>
+        <div class="A-dialog-wrapper">
+            <header>
+                <slot name='title'/>
+                <span class="A-dialog-close" @click="closeDialog"></span>
+            </header>
+            <main>
+                <slot name='content'/>
+            </main>
+            <footer>
+                <Button theme='primary' @click="cancelDialog">取消</Button>
+                <Button @click="sureDialog">确定</Button>
+            </footer>
+        </div>
     </div>
-</div>
 </template>
 
 <script lang="ts">
@@ -30,14 +28,38 @@ export default {
         visial:{
             type:Boolean,
             default:false
+        },
+        canClickOverlay:{
+            type:Boolean,
+            default:true
+        },
+        ok:{
+            type:Function
+        },
+        cancel:{
+            type:Function
         }
     },
     setup(props,context){
         const closeDialog=()=>{
             context.emit('update:visial',false)
         }
+        const clickOverlay=()=>{
+            if(props.canClickOverlay){
+                closeDialog()
+            }
+        }
+        const sureDialog=()=>{
+            if(props.ok?.()!==false){
+                close()
+            }
+        }
+        const cancelDialog=()=>{
+            
+        }
         return{
-            closeDialog
+            closeDialog,
+            clickOverlay
         }
     }
 }
@@ -45,14 +67,16 @@ export default {
 
 <style lang="scss">
 .A-dialog {
-    position: fixed;
-    background-color: fade_out(black, 0.5);
-    left: 0;
-    top: 0;
-    width: 100%;
-    height: 100vh;
-    z-index: 60;
-    box-shadow: 0,0,3px fade_out(black, 0.5);
+    &-overlay{
+        position: fixed;
+        background-color: fade_out(black, 0.5);
+        left: 0;
+        top: 0;
+        width: 100%;
+        height: 100vh;
+        z-index: 60;
+        box-shadow: 0,0,3px fade_out(black, 0.5);
+    }
     &-wrapper {
         position: fixed;
         left: 50%;
@@ -63,6 +87,7 @@ export default {
         width: 70%;
         height: 200px;
         border-radius: 4px;
+        z-index: 70;
         >header{
             display: flex;
             justify-content: space-between;
