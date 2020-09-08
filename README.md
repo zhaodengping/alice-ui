@@ -60,6 +60,12 @@ npm i -g create-vite-app@1.18.0
          <teleport to='body'></teleport>
          ```
 
+    - 检查子组件的类型
+
+        ```
+        context.slots.default()
+        ```
+
 完成进度如下：
 
 - switch组件
