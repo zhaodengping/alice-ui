@@ -66,6 +66,8 @@ npm i -g create-vite-app@1.18.0
         context.slots.default()
         ```
 
+    - watchEffect在onMounted之前就挂载好了.
+
 完成进度如下：
 
 - switch组件

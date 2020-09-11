@@ -13,7 +13,6 @@
 <script lang="ts">
 import {
     onMounted,
-    onUpdated,
     ref,
     watchEffect
 } from 'vue'
@@ -35,21 +34,21 @@ export default {
         const navItems = ref < HTMLDivElement > (null)
         const container = ref < HTMLDivElement > (null);
         const indicator = ref < HTMLDivElement > (null);
-        const commonData = () => {
-            const {
-                width
-            } = navItems.value.getBoundingClientRect()
-            indicator.value.style.width = width + 'px';
-            const {
-                left: left1
-            } = container.value.getBoundingClientRect()
-            const {
-                left: left2
-            } = navItems.value.getBoundingClientRect()
-            indicator.value.style.left = (left2 - left1) + 'px'
-        }
-        onMounted(commonData)
-        onUpdated(commonData)
+        onMounted(() => {
+            watchEffect(() => {
+                const {
+                    width
+                } = navItems.value.getBoundingClientRect()
+                indicator.value.style.width = width + 'px';
+                const {
+                    left: left1
+                } = container.value.getBoundingClientRect()
+                const {
+                    left: left2
+                } = navItems.value.getBoundingClientRect()
+                indicator.value.style.left = (left2 - left1) + 'px'
+            })
+        })
 
         return {
             results,
