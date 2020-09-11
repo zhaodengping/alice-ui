@@ -2,7 +2,7 @@
 <h1 class="title">Tabs按钮</h1>
 <Tabs v-model:selected="x">
     <Tab title='导航1'>组件1</Tab>
-    <Tab title='导航2'>组件2</Tab>
+    <Tab title='导航22222'>组件22222</Tab>
 </Tabs>
 </template>
 
@@ -18,7 +18,7 @@ export default {
         Tab
     },
     setup() {
-        const x = ref('导航2');
+        const x = ref('导航1');
         return {
             x
         }
@@ -28,6 +28,7 @@ export default {
 
 <style lang="scss" scoped>
 .title {
+    margin-bottom: 20px;
     color: #1f2f3d;
     font-weight: 400;
 }
