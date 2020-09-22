@@ -1,59 +1,75 @@
 <template>
-     <div class="topnav">
-        <div class="logo">
-            <img src="../assets/logo.png" alt="logo" srcset="">
-            <div>Vue3.js</div>
-        </div>
-        <div class="menu">
-            <ul>
-                <li>学习</li>
-            </ul>
-        </div>
-        <div class="toggleAside"  @click="toggleMenu"></div>
+<div class="topnav">
+    <router-link to='/' class="logo">
+        <svg class="icon logo-color" aria-hidden="true">
+            <use xlink:href="#icon-learn"></use>
+        </svg>
+    </router-link>
+    <div class="menu">
+        <ul>
+            <li>学习</li>
+        </ul>
     </div>
+    <div class="toggleAside" @click="toggleMenu"></div>
+</div>
 </template>
-<script type='ts'>
-import { inject } from 'vue'
+
+<script>
+import {
+    inject
+} from 'vue'
 export default {
-    setup(){
+    setup() {
         const menuVisible = inject('showMenu')
-        const toggleMenu=()=>{
+        const toggleMenu = () => {
             menuVisible.value = !menuVisible.value
         }
-        return {toggleMenu}
+        return {
+            toggleMenu,
+        }
     }
 }
 </script>
+
 <style lang="scss" scoped>
 .topnav {
     position: fixed;
-    top:0;
+    top: 0;
     background: #fff;
     display: flex;
     justify-content: space-between;
     justify-items: center;
     padding: 16px;
-    z-index: 10;
+    z-index: 100;
     width: 100%;
     border-bottom: 1px solid #f2f2f2;
-    .logo{
+
+    .logo {
         display: flex;
         align-items: center;
-        img{
+
+        &:hover {
+            cursor: pointer;
+        }
+
+        .logo-color {
             margin-right: 10px;
-            width: 50px;
+            color: #409eff;
+            font-size: 40px;
         }
     }
-    .menu ul{
-        display: flex;
+
+    .menu ul {
         white-space: nowrap;
         flex-wrap: nowrap;
-        > li {
-            margin:0 1em;
+
+        >li {
+            margin: 0 1em;
             color: #304455;
         }
     }
-    .toggleAside{
+
+    .toggleAside {
         display: none;
         position: absolute;
         left: 10px;
@@ -61,16 +77,19 @@ export default {
         width: 40px;
         height: 40px;
         border-radius: 10px;
-        background-color:#f2f2f2;
+        background-color: #f2f2f2;
     }
+
     @media (max-width: 500px) {
-        >.menu{
+        >.menu {
             display: none;
         }
-        >.logo{
+
+        >.logo {
             margin: 0 auto;
         }
-        >.toggleAside{
+
+        >.toggleAside {
             display: block;
         }
     }

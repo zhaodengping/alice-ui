@@ -60,6 +60,7 @@ export default {
             height: 100%;
             z-index: 20;
             border-right: 1px solid #f2f2f2;
+
             li {
                 line-height: 50px;
             }
