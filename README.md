@@ -68,6 +68,12 @@ npm i -g create-vite-app@1.18.0
 
     - watchEffect在onMounted之前就挂载好了.
 
+    - 在vue中使用markdown的样式
+
+    ```
+    npm i github-markdown-css
+    ```
+
 完成进度如下：
 
 - switch组件

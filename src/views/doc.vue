@@ -4,6 +4,17 @@
     <div class="content">
         <aside v-if='menuVisible'>
             <h3>介绍</h3>
+            <ol>
+                <li>
+                    <router-link to='/intro'>介绍</router-link>
+                </li>
+                <li>
+                    <router-link to='/install'>安装</router-link>
+                </li>
+                <li>
+                    <router-link to='/start'>开始使用</router-link>
+                </li>
+            </ol>
             <h3>组件列表</h3>
             <ol>
                 <li>
@@ -46,6 +57,10 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+.router-link-active {
+    color: #409eff;
+}
+
 .layout {
     height: 100vh;
     background-color: #fff;
@@ -65,7 +80,7 @@ export default {
             background-color: #fff;
 
             li {
-                line-height: 50px;
+                line-height: 40px;
             }
 
             a {

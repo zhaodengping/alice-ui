@@ -5,6 +5,10 @@ import Switch from './components/SwitchDemo.vue'
 import Button from './components/ButtonDemo.vue'
 import Tabs from './components/TabsDemo.vue'
 import Dialog from './components/DialogDemo.vue'
+import Intro from './views/intro.vue'
+import Start from './views/start.vue'
+import Install from './views/install.vue'
+
 
 import {createWebHashHistory,createRouter} from 'vue-router'
 
@@ -28,6 +32,15 @@ export const router=createRouter({
             path:'tabs',component:Tabs
         },{
             path:'Dialog',component:Dialog
+        },{
+            path:'/intro',
+            component:Intro
+        },{
+            path:"/start",
+            component:Start
+        },{
+            path:"/install",
+            component:Install
         }]
     }]
 })
