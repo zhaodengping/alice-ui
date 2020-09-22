@@ -3,6 +3,8 @@
     <Topnav />
     <div class="content">
         <aside v-if='menuVisible'>
+            <h3>介绍</h3>
+            <h3>组件列表</h3>
             <ol>
                 <li>
                     <router-link to='/doc/switch'>switch组件</router-link>
@@ -60,6 +62,7 @@ export default {
             height: 100%;
             z-index: 20;
             border-right: 1px solid #f2f2f2;
+            background-color: #fff;
 
             li {
                 line-height: 50px;

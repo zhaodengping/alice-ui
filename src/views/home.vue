@@ -59,6 +59,7 @@ export default {
     margin-top: 80px;
     background-color: #ecf5ff;
     clip-path: ellipse(80% 60% at 50% 40%);
+
     >.content {
         text-align: center;
 
@@ -98,7 +99,17 @@ export default {
 
         .logo {
             margin-right: 20px;
-            font-size: 40px;
+            font-size: 4em;
+        }
+    }
+}
+
+@media (max-width: 500px) {
+    .feature {
+        display: block;
+
+        >.content {
+            width: 100%;
         }
     }
 }

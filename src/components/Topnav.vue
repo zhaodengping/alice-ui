@@ -5,12 +5,23 @@
             <use xlink:href="#icon-learn"></use>
         </svg>
     </router-link>
+
+    <div class="toggleAside" @click="toggleMenu" v-if='isDoc'>
+        <svg class="icon logo-color" aria-hidden="true">
+            <use xlink:href="#icon-menu"></use>
+        </svg>
+    </div>
+    <router-link to='/' class="home-logo">
+        <svg class="icon logo-color" aria-hidden="true">
+            <use xlink:href="#icon-learn"></use>
+        </svg>
+    </router-link>
     <div class="menu">
         <ul>
-            <li>学习</li>
+            <li>文档</li>
         </ul>
     </div>
-    <div class="toggleAside" @click="toggleMenu"></div>
+
 </div>
 </template>
 
@@ -19,6 +30,18 @@ import {
     inject
 } from 'vue'
 export default {
+    data() {
+        return {
+            isDoc: false
+        }
+    },
+    created() {
+        if (this.$route.fullPath == '/') {
+            this.isDoc = false
+        } else {
+            this.isDoc = true
+        }
+    },
     setup() {
         const menuVisible = inject('showMenu')
         const toggleMenu = () => {
@@ -39,6 +62,7 @@ export default {
     display: flex;
     justify-content: space-between;
     justify-items: center;
+    align-items: center;
     padding: 16px;
     z-index: 100;
     width: 100%;
@@ -71,26 +95,30 @@ export default {
 
     .toggleAside {
         display: none;
-        position: absolute;
-        left: 10px;
-        top: 10px;
         width: 40px;
-        height: 40px;
         border-radius: 10px;
-        background-color: #f2f2f2;
+        font-size: 40px;
+        color: #409eff;
+    }
+
+    .home-logo {
+        display: none;
     }
 
     @media (max-width: 500px) {
-        >.menu {
-            display: none;
-        }
-
         >.logo {
+            display: none;
             margin: 0 auto;
         }
 
         >.toggleAside {
             display: block;
+        }
+
+        .home-logo {
+            display: block;
+            font-size: 30px;
+            color: #409eff;
         }
     }
 }
