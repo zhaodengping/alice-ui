@@ -58,7 +58,7 @@ export default {
     padding: 100px 0;
     margin-top: 80px;
     background-color: #ecf5ff;
-
+    clip-path: ellipse(80% 60% at 50% 40%);
     >.content {
         text-align: center;
 
@@ -94,7 +94,6 @@ export default {
         margin-bottom: 20px;
         padding: 20px;
         width: 49%;
-        background-color: #f2f2f2;
         border-radius: 4px;
 
         .logo {
